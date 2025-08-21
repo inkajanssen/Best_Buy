@@ -59,11 +59,7 @@ class Store:
 
         for purchase in shopping_list:
             product, quantity = purchase
-
-            if product in self.list_of_products:
-                price = Product.buy(product, quantity)
-                total_price += price
-            else:
-                raise Exception("Product is not in Store")
+            price = Product.buy(product, quantity)
+            total_price += price
 
         return total_price
