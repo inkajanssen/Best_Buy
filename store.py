@@ -1,7 +1,9 @@
 from products import Product
 
 class Store:
-    list_of_products = []
+
+    def __init__(self, list_of_products):
+        self.list_of_products = list_of_products
 
 
     def add_product(self, product):
@@ -10,7 +12,7 @@ class Store:
         :param product:
         :return:
         """
-        pass
+        self.list_of_products.append(product)
 
 
     def remove_product(self, product):
@@ -19,7 +21,7 @@ class Store:
         :param product:
         :return:
         """
-        pass
+        self.list_of_products.remove(product)
 
 
     def get_total_quantity(self)-> int:
@@ -27,7 +29,10 @@ class Store:
         Returns how many items are in the store in total.
         :return:
         """
-        pass
+        total_quantity = 0
+        for product in self.list_of_products:
+            total_quantity += Product.get_quantity(product)
+        return total_quantity
 
 
     def get_all_products(self)-> list[Product]:
@@ -35,7 +40,11 @@ class Store:
         Returns all products in the store that are active.
         :return:
         """
-        pass
+        active_products = []
+        for product in self.list_of_products:
+            if Product.is_active(product):
+                active_products.append(product)
+        return active_products
 
 
     def order(self, shopping_list)-> float:
@@ -44,6 +53,17 @@ class Store:
         Product (Product class) and quantity (int).
         Buys the products and returns the total price of the order.
         :param shopping_list:
-        :return:
+        :return: total price
         """
-        pass
+        total_price = 0
+
+        for purchase in shopping_list:
+            product, quantity = purchase
+
+            if product in self.list_of_products:
+                price = Product.buy(product, quantity)
+                total_price += price
+            else:
+                raise Exception("Product is not in Store")
+
+        return total_price

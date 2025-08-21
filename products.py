@@ -38,9 +38,14 @@ class Product:
     def set_quantity(self, quantity):
         """
         Setter function for quantity. If quantity reaches 0, deactivates the product.
+        Set activate to true if the quantity is over 0.
         :return:
         """
         self.quantity = quantity
+
+        if not Product.is_active(self):
+            Product.activate(self)
+
         if quantity == 0:
             Product.deactivate(self)
 
