@@ -80,7 +80,7 @@ class Product:
         Prints a string that represents the product
         :return:
         """
-        print(f"{self.name}, Price: {self.price}, Quantity: {self.quantity}")
+        return f"{self.name}, Price: {self.price}, Quantity: {self.quantity}"
 
 
     def buy(self, quantity)-> float:
