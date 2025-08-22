@@ -1,3 +1,5 @@
+import sys
+
 class Product:
 
     def __init__(self, name, price, quantity):
@@ -11,6 +13,7 @@ class Product:
         :param quantity:
         """
         self.active = None
+
         if not type(name) == str or name == "":
             raise TypeError("Invalid name")
 
@@ -93,9 +96,11 @@ class Product:
         :return:
         """
         if not self.is_active():
+            sys.tracebacklimit = 0
             raise Exception("There is no such product")
 
         if quantity > self.quantity:
+            sys.tracebacklimit = 0
             raise Exception(f"There are only {self.quantity} {self.name} left")
 
         price = quantity * self.price

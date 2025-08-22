@@ -75,7 +75,11 @@ def make_order(store):
         amount = input("What amount do you want?")
 
         if not product and not amount:
-            total_price = Store.order(store, shopping_list)
+            try:
+                total_price = Store.order(store, shopping_list)
+            except Exception:
+                print("Error while making order! Quantity larger than what exists")
+                break
             print(f"Order made! Total payment:{total_price}")
             break
 
@@ -89,7 +93,6 @@ def make_order(store):
 
         except ValueError:
             print("Error adding product!")
-
 
 
 def main():
@@ -106,8 +109,10 @@ def main():
         2: show_total_amount,
         3: make_order
     }
-
-    store = initialize_store()
+    try:
+        store = initialize_store()
+    except TypeError:
+        print("A product was not created properly.")
 
     while True:
         start()
