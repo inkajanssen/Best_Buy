@@ -1,6 +1,11 @@
 import sys
 
 class Product:
+    """
+    The Product class represents a specific type of product available in
+    the store (For example, MacBook Air M2). It encapsulates information
+    about the product, including its name and price.
+    """
 
     def __init__(self, name, price, quantity):
         """

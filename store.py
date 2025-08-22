@@ -1,6 +1,10 @@
 from products import Product
 
 class Store:
+    """
+    Store will hold all products and will allow the user to make a purchase
+    of multiple products at once.
+    """
 
     def __init__(self, list_of_products):
         """
