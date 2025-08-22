@@ -14,13 +14,13 @@ class Product:
         """
         self.active = None
 
-        if not type(name) == str or name == "":
+        if not isinstance(name, str) or name == "":
             raise TypeError("Invalid name")
 
-        if type(price) != float and type(price) != int:
+        if not isinstance(price, float) and isinstance(price, int):
             raise TypeError("Price must be a number")
 
-        if not type(quantity) == int:
+        if not isinstance(quantity, int):
             raise TypeError("Quantity must be an int")
 
         self.name = name

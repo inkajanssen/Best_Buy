@@ -124,7 +124,7 @@ def main():
                 print("Bye!")
                 return False
 
-            elif option in menu_functions:
+            if option in menu_functions:
                 menu_functions[option](store)
                 pause()
 

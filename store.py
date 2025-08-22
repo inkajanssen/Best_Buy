@@ -3,6 +3,11 @@ from products import Product
 class Store:
 
     def __init__(self, list_of_products):
+        """
+        Initiator (constructor) method.
+        Creates the instance variables for a list of products.
+        :param list_of_products:
+        """
         self.list_of_products = list_of_products
 
 
