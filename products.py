@@ -22,7 +22,7 @@ class Product:
         if not isinstance(name, str) or name == "":
             raise TypeError("Invalid name")
 
-        if not isinstance(price, float) and isinstance(price, int):
+        if not isinstance(price, float) and not isinstance(price, int):
             raise TypeError("Price must be a number")
 
         if not isinstance(quantity, int):

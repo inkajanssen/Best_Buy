@@ -72,3 +72,10 @@ class Store:
             total_price += price
 
         return total_price
+
+product_list = [Product("MacBook Air M2", price=1450, quantity=100),
+                Product("Bose QuietComfort Earbuds", price=250, quantity=500),
+                Product("Google Pixel 7", price=500, quantity=250)
+                 ]
+
+best_buy = Store(product_list)
