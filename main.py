@@ -48,7 +48,7 @@ def list_all_products(store):
     Lists all products in store
     :return:
     """
-    for position, product in enumerate(store.list_of_products, 1):
+    for position, product in enumerate(store.get_all_products(), 1):
         print(f"{position}. {product.show()}")
 
 
@@ -120,6 +120,8 @@ def main():
 
     while True:
         start()
+        updated_store = Store.get_all_products(store)
+        store = Store(updated_store)
 
         try:
             option = int(input())

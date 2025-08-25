@@ -31,7 +31,8 @@ class Product:
         self.name = name
         self.price = price
         self.quantity = quantity
-        Product.activate(self)
+        if quantity > 0:
+            Product.activate(self)
 
 
     def get_quantity(self) -> int:
@@ -49,13 +50,10 @@ class Product:
         Set activate to true if the quantity is over 0.
         :return:
         """
-        self.quantity = quantity
-
-        if not Product.is_active(self):
-            Product.activate(self)
-
         if quantity == 0:
             Product.deactivate(self)
+
+        self.quantity = quantity
 
 
     def is_active(self)-> bool:
